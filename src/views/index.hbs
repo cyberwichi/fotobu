@@ -1,0 +1,107 @@
+<div class="targetas">
+    
+
+    {{#each images}}
+    <div class="col s12 ">
+
+        <div id="image{{uniqueId}}" class="margenarriba">{{title}}</div>
+        <a class="" href="/images/{{uniqueId }}">
+            <img class=" listaImagenes" src="../public/upload/{{filename}}">
+        </a>
+
+        <div class="bandalike">
+            <button class=" contadorimagenes btn-flat" id="botonlikes" data-apo="{{filename}}"
+                onclick="botonLikes('{{filename}}', '{{uniqueId}}')">
+                <span id="likes{{uniqueId}}">{{likes}} </span>
+                <i class="material-icons valign-wrapper">thumb_up_alt</i></span>
+            </button>
+            <div class="valign-wrapper">
+                {{description}}
+            </div>
+            <div class="valign-wrapper contadorvistas"> <i class="material-icons">remove_red_eye</i>{{views}}
+            </div>
+        </div>
+
+        <ul id="comentario{{uniqueId}}" class=" comentario2">
+
+
+            {{#each ../coments}}
+
+
+            {{#compare ../_id '==' imagen_id}}
+            <li class="bandalike">
+                <div class=""><img class="avatar" src="{{avatar}}" alt=""> {{nombre}} dijo:</div>
+                <div class="">{{comentario}}</div>
+                <div class="">{{timeago timestamp}}</div>
+            </li>
+
+            {{/compare}}
+
+            {{/each}}
+            <div class="bandalike">
+                <div class="valign-wrapper">
+                    <a id="vermas" onclick="mostrarMas('{{uniqueId}}')">Ver mas...</a>
+                </div>
+
+                <div class="valign-wrapper contadorvistas"> Publicado<i
+                        class="material-icons">access_time</i>{{timeago timestamp}}
+                </div>
+
+                <div class="valign-wrapper">
+                    <a href="/images/{{uniqueId}}/#hacerComentario" class="activator">Comentar...<i
+                            class="material-icons">create</i></a>
+
+                </div>
+
+            </div>
+
+
+        </ul>
+        <br>
+
+
+    </div>
+    <div class="">
+    </div>
+    {{!--     <div id="hacerComen" class="modal">
+            <div class="modal-content">
+                <span class="card-title grey-text text-darken-4 modal-close">Comentar Imagen<i
+                        class="material-icons right">close</i></span>
+                <blockquote>
+                    {{ filename }}
+                    <form action="/images/{{ uniqueId }}/comment" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nombre" type="text" class="validate" required name="nombre">
+                                <label for="nombre">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="comentario" name="comentario" class="materialize-textarea"
+                                    required></textarea>
+                                <label for="comentario">Comentario</label>
+                            </div>
+                        </div>
+                        <button class="modal-close btn waves-effect waves-light" type="submit">Enviar<i
+                                class="material-icons right">send</i></button>
+                    </form>
+
+                </blockquote>
+
+
+            </div>
+
+        </div> --}}
+
+
+
+
+    {{/each}}
+
+
+
+
+
+
+</div>

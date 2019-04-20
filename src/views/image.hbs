@@ -1,0 +1,91 @@
+<div class="row targetaimagen">
+
+
+    <div class="card sticky-action ">
+        <div class="cardimage2">
+
+            {{!-- oculto el boton borrar hasta que alguien con privilejios lo active --}}
+            <a class="btn-borrar  waves-effect waves-light red black-text " data-apo="{{image.filename}}"><i
+                    class="small material-icons icon-borrar">delete</i></a>
+            <img class="imagentargeta responsive-img" src="/public/upload/{{image.filename}}">
+            <span class="card-title">{{image.title}}</span>
+
+            <a href="#hacerComentario"
+                class="pulse btn-floating halfway-facb flotante waves-effect waves-light red modal-trigger"><i
+                    class="material-icons">create</i></a>
+        </div>
+        <div class="card-action center-align">
+            <div class="bandalike">
+                <a href="/#image{{image.uniqueId}}">volver</a>
+                <button class="valign-wrapper contadorimagenes btn-flat" id="botonLikes2" data-apo="{{image.filename}}">
+                    <span id="contadorlikes2">{{image.likes}} </span>
+                    <i class="material-icons">thumb_up_alt</i></span>
+                </button>
+
+                <div class="valign-wrapper contadorvistas"> <i
+                        class="material-icons">access_time</i>{{timeago image.timestamp}}</div>
+                <div class="valign-wrapper contadorvistas"> <i class="material-icons">remove_red_eye</i>{{image.views}}
+                </div>
+            </div>
+
+            <div class="container margenabajo">
+                {{image.description}}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="container" id="hacerComentario">
+    <span class="card-title grey-text text-darken-4">Comentar Imagen<i class="material-icons right">close</i></span>
+    <blockquote>
+        <form action="/images/{{ image.uniqueId }}/comment" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="nombre" type="text" class="validate" required name="nombre">
+                    <label for="nombre">Nombre</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="comentario" name="comentario" class="materialize-textarea" required></textarea>
+                    <label for="comentario">Comentario</label>
+                </div>
+            </div>
+            <button class="modal-close btn waves-effect waves-light" type="submit">Enviar<i
+                    class="material-icons right">send</i></button>
+        </form>
+
+    </blockquote>
+
+</div>
+<div class=" card row targetaimagen">
+    <div class="card-title">
+        <h4 class="center">Comentarios</h4>
+    </div>
+    <div class="card-action " id="inicioComentarios">
+        {{#each comen}}
+        <div class="targetacomentario">
+            <div class="comentarioheader">
+
+                <img class="avatar valign-wrapper" src="{{avatar}}" alt="">
+                <div class="valign-wrapper">{{nombre}}</div>
+                <div class="valign-wrapper"><i class="material-icons">access_time</i>
+                    {{timeago timestamp}}
+                </div>
+
+            </div>
+
+            <blockquote class="comentariofooter">
+                <div> {{comentario}}</div>
+            </blockquote>
+
+        </div>
+
+
+
+        {{/each}}
+    </div>
+
+</div>
