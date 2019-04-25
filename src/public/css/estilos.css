@@ -181,6 +181,7 @@ z-index: 100;
     float: left;
     z-index: 1;
     padding: 10px;
-   
-    
+}
+ul.comentario2> li:nth-child(n+4){
+    display: none;
 }
