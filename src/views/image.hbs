@@ -1,22 +1,32 @@
-<div class="row targetaimagen">
+<div class="row targetaImagen">
+    
 
 
-    <div class="card sticky-action ">
+    <div class="card">
         <div class="cardimage2">
-
+            <span class=""></span>
             {{!-- oculto el boton borrar hasta que alguien con privilejios lo active --}}
             <a class="btn-borrar  waves-effect waves-light red black-text " data-apo="{{image.filename}}"><i
                     class="small material-icons icon-borrar">delete</i></a>
             <img class="imagentargeta responsive-img" src="/public/upload/{{image.filename}}">
-            <span class="card-title">{{image.title}}</span>
+
 
             <a href="#hacerComentario"
                 class="pulse btn-floating halfway-facb flotante waves-effect waves-light red modal-trigger"><i
                     class="material-icons">create</i></a>
+            
+
         </div>
+        <div class="bandalike">
+            <div> Subida por:{{image.title}}</div>
+               
+                <a class="botonVolver" href="/#image{{image.uniqueId}}">volver</a>
+
+            </div>
+
         <div class="card-action center-align">
             <div class="bandalike">
-                <a href="/#image{{image.uniqueId}}">volver</a>
+                
                 <button class="valign-wrapper contadorimagenes btn-flat" id="botonLikes2" data-apo="{{image.filename}}">
                     <span id="contadorlikes2">{{image.likes}} </span>
                     <i class="material-icons">thumb_up_alt</i></span>
@@ -37,8 +47,8 @@
     </div>
 
 </div>
-<div class="container" id="hacerComentario">
-    <span class="card-title grey-text text-darken-4">Comentar Imagen<i class="material-icons right">close</i></span>
+<div class="card" id="hacerComentario">
+    <span class="card-title grey-text text-darken-4">Comentar Imagen</span>
     <blockquote>
         <form action="/images/{{ image.uniqueId }}/comment" method="post">
             <div class="row">
@@ -60,32 +70,38 @@
     </blockquote>
 
 </div>
-<div class=" card row targetaimagen" id="mostrarComentarios">
+<div class=" card row " id="mostrarComentarios">
     <div class="card-title">
         <h4 class="center">Comentarios</h4>
     </div>
     <div class="card-action " id="inicioComentarios">
-        {{#each comen}}
-        <div class="targetacomentario">
+        <ul>
+            {{#each comen}}
+            {{!-- <div class="targetacomentario">
             <div class="comentarioheader">
-
                 <img class="avatar valign-wrapper" src="{{avatar}}" alt="">
                 <div class="valign-wrapper">{{nombre}}</div>
-                <div class="valign-wrapper"><i class="material-icons">access_time</i>
-                    {{timeago timestamp}}
-                </div>
-
             </div>
 
-            <blockquote class="comentariofooter">
+            <blockquote >
                 <div> {{comentario}}</div>
             </blockquote>
 
-        </div>
+            <div class="valign-wrapper center comentariofooter"><i class="material-icons">access_time</i>
+                {{timeago timestamp}}
+            </div>
+        </div> --}}
+            <li class="bandalike">
+                <div class=""><img class="avatar" src="{{avatar}}" alt=""> {{nombre}} dijo:</div>
+                <div class="">{{comentario}}</div>
+                <div class="">{{timeago timestamp}}</div>
+            </li>
 
 
 
-        {{/each}}
+            {{/each}}
+        </ul>
+        <a class="botonVolver valign-wrapper" href="/#image{{image.uniqueId}}">volver</a>
     </div>
 
 </div>

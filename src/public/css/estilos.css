@@ -45,11 +45,11 @@ body {
     margin:5px 10px;
 }
 
-.cardimage2 {
-    
+.cardimage2 {    
     position: relative;
-    height: 650px;
-    width: 100%;
+    height: 500px;
+   
+    
     overflow: hidden;
    
 
@@ -109,27 +109,27 @@ body {
 }
 
 .avatar {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 
 }
 
 .comentariofooter {
-    margin: 0 auto 50px auto;
+    margin: 0 auto 5px auto;
 
 }
 
+
 .comentarioheader {
-    margin: 20px;
+    margin: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
 .targetacomentario {
-    border: 1px solid #aaaaaa;
-    margin: 15px;
     padding: 10px;
+    box-shadow: 5px 5px 5px #502020;
 }
 
 i {
@@ -155,7 +155,6 @@ i {
     font-weight: 500;
     background-color: #B8B028;
     color: #2830B8;
-   
     font-size: 30px;
     z-index: 15;
    
@@ -184,4 +183,13 @@ z-index: 100;
 }
 ul.comentario2> li:nth-child(n+4){
     display: none;
+}
+.botonVolver{
+    color:black!important;
+    display: block;
+    font-size: 2em;
+    text-shadow: 5px 5px 5px #2830B8;
+}
+.targetaImagen{
+    margin-top:10%;
 }

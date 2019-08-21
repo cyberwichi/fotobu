@@ -1,15 +1,19 @@
-<div class="targetas">
-    
-
+<hr style="color: #0056b2;" />
+<div class="targetas ">
     {{#each images}}
+    <hr style="color: #0056b2;" />
+    
+    
     <div class="col s12 ">
-
-        <div id="image{{uniqueId}}" class="margenarriba">{{title}}</div>
+        <div id="image{{uniqueId}}" class="">Subida por : {{title}}
         <a class="" href="/images/{{uniqueId }}">
             <img class=" listaImagenes" src="../public/upload/{{filename}}">
         </a>
-
+        
+       
+        </div>
         <div class="bandalike">
+             
             <button class=" contadorimagenes btn-flat" id="botonlikes" data-apo="{{filename}}"
                 onclick="botonLikes('{{filename}}', '{{uniqueId}}')">
                 <span id="likes{{uniqueId}}">{{likes}} </span>
@@ -57,12 +61,8 @@
 
 
         </ul>
-        <br>
-
-
     </div>
-    <div class="">
-    </div>
+    
     {{!--     <div id="hacerComen" class="modal">
             <div class="modal-content">
                 <span class="card-title grey-text text-darken-4 modal-close">Comentar Imagen<i
@@ -93,15 +93,6 @@
             </div>
 
         </div> --}}
-
-
-
-
+        
     {{/each}}
-
-
-
-
-
-
 </div>
