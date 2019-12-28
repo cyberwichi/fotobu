@@ -20,7 +20,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.4.23",
     "morgan": "^1.9.1",
-    "handlebars": ">=4.1.2",
+    "handlebars": ">=4.3.0",
     "multer": "^1.4.1"
   },
   "devDependencies": {
